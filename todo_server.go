@@ -64,7 +64,7 @@ func insert_todo(todo_title string) error {
 	if err != nil {
 		return err
 	}
-	_, err = db.Exec("INSERT INTO todos (title) values ('" + todo_title + "')")
+	_, err = db.Exec("INSERT INTO todos (title) values ($1)", todo_title)
 	if err != nil {
 		return err
 	}
